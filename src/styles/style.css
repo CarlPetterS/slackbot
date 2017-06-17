@@ -1,0 +1,62 @@
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    text-decoration: none;
+}
+
+body {
+    color: #96A0B0;
+    font-family: adelle-sans,helvetica,arial;
+    font-style: normal;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+}
+
+.footer {
+    height: 72px;
+    clear: both;
+    background-color: #434a54;
+    text-align: center;
+    font-size: 11px;
+}
+
+.footer__copyright {
+    color: #656d78;
+    font-style: normal;
+    font-size: 13px;
+}
+
+.footer > ul {    
+}
+
+.footer > ul > li {
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 15px;
+    line-height: 11px;
+}
+
+.footer__items {
+    color: white;
+}
+
+.header {
+    height: 80px;
+    width: 100%;
+    background: #656D78;
+}
+
+.header__navbar {
+    display: none;
+}
+
+.header__logo {
+    position: absolute;
+    margin-top: 21px;
+    left: 50%;
+    margin-left: -110px;
+}
