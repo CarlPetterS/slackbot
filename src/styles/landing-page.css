@@ -1,0 +1,109 @@
+main {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.landing__signin {
+  height: calc(100vh - 160px);
+  background: linear-gradient(
+      rgba(101, 109, 120, 0.50),
+      rgba(101, 109, 120, 0.50)
+    ),
+    url('../images/background_landing.jpg') no-repeat center center;
+  background-size: cover;
+  color: white;
+  min-height: 300px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 80px;
+}
+
+.landing__signin > h1 {
+  font-size: 24px;
+}
+
+.landing__signin > p {
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.landing__signin a {
+  display: block;
+  position:relative;
+  top: 25%;
+}
+
+.landing__how {
+  color: black;
+  background-color: white;
+  padding-top: 30px;
+}
+
+.landing__how > h1 {
+  font-size: 24px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 60px;
+}
+
+.landing__how .how__slackimage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  width: 100%;
+  height: 250px;
+}
+
+.landing__how > p {
+  font-family: adelle-sans,helvetica,arial;
+  font-size: 18px;
+  margin-top: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.landing__how .how__onboardimage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  height: 120px;
+  margin-top: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 30px;
+}
+
+.landing__signinbottom {
+  height: 240px;
+  color: white;
+  background-color: #3baeda;
+  padding-top: 60px;
+}
+
+.landing__signinbottom > h1 {
+  display: block;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.landing__signinbottom > a {
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.33);
+  border-radius: 2px;
+  color: white;
+  margin: auto;
+  width: 210px;
+  height: 45px;
+  margin-top: 60px;
+}
+
+.landing__signinbottom > a:hover {
+  border: 2px solid rgba(255, 255, 255, 1);
+}
