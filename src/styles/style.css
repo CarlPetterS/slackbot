@@ -16,6 +16,11 @@ body {
     text-rendering: optimizeLegibility;
 }
 
+em {
+    font-style: italic;
+    font-weight: bold;
+}
+
 .footer {
     height: 72px;
     clear: both;
