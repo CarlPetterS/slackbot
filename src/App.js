@@ -4,15 +4,10 @@ import { Switch, Route } from 'react-router-dom'
 import { Header } from './components/header'
 import { Footer } from './components/footer'
 import { Landing } from './components/landing'
+import { Container } from './containers/container'
 import { Onboard } from './components/onboard'
 
 import './styles/style.css'
-
-const Container = ({ children }) => (
-  <div className="container">
-    {children}
-  </div>
-)
 
 class App extends Component {
   render() {
