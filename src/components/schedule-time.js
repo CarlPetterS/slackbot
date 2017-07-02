@@ -9,10 +9,11 @@ export const ScheduleTimeDummy = ({ backToSelectUsers, gotoReview }) => (
           instructions="Schedule Time:" 
           progress={require("../images/progress_1.png")}>
         <form>
-            <p><h4>Time of day</h4><input type="text" value="1pm" /></p>
+            <h4>Time of day</h4><input type="time" value="01:00" />
+            
         </form>
-        <a onClick={backToSelectUsers}>Back</a>
         <a onClick={gotoReview}>Review</a>
+        <a onClick={backToSelectUsers}>Back</a>
     </Card>
 )
 

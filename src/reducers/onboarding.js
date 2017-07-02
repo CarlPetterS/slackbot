@@ -1,9 +1,23 @@
-import { SWITCH_CARD, SEND, ADD_QUESTION, cards } from '../actions/actions'
+import { 
+    SWITCH_CARD,
+    SEND,
+    SAVE_QUESTIONS,
+    TOGGLE_USER,
+    TOGGLE_ALL_USERS,
+    cards 
+} from '../actions/actions'
+
+const rawUsers = JSON.parse('[{"id":"U4BKGQUKT","name":"GoodTalk","user_name":"goodtalk","time_zone":null,"time_zone_offset":-25200,"is_bot":true,"image":"https://avatars.slack-edge.com/2017-03-01/149032288135_1bd39e528b8eb6a70c4a_48.png"},{"id":"U4EE012KZ","name":"Carl Petter","user_name":"karlpet","time_zone":"Europe/Amsterdam","time_zone_offset":7200,"is_bot":false,"image":"https://secure.gravatar.com/avatar/6e5beb4ac88c9847551faeb2ec8b2710.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0013-48.png"},{"id":"U494C3EQL","user_name":"message_super_server","is_bot":true,"image":"https://secure.gravatar.com/avatar/d0988d1c34310234c5697bef0bb066ce.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0007-48.png"},{"id":"U4874S9PW","name":"Oskar Råhlén","user_name":"oskar","time_zone":"Europe/Amsterdam","time_zone_offset":7200,"is_bot":false,"image":"https://secure.gravatar.com/avatar/b60cdbaca507e730a880372eb601816a.jpg?s=48&d=https%3A%2F%2Fa.slack-edge.com%2F66f9%2Fimg%2Favatars%2Fava_0004-48.png"},{"id":"USLACKBOT","name":"slackbot","user_name":"slackbot","time_zone":null,"time_zone_offset":-25200,"is_bot":false,"image":"https://a.slack-edge.com/2fac/plugins/slackbot/assets/service_48.png"}]')
+
+const users = rawUsers
+  .filter(user => !user.is_bot)
+  .map(user => ({ ...user, ...{ selected: true } }))
 
 const initialState = {
+    users: users,
+    allSelected: true,
     currentCard: cards.PICK_QUESTIONS, 
     questions: ["What's going great?", "What could be better?", "How can I help?"],
-    selectedMembers: [],
     schedule: {
         time: "1pm",
         repeats: "weekly",
@@ -24,12 +38,21 @@ export default function onBoarding(state = initialState, action) {
     switch(action.type) {
         case SWITCH_CARD: 
           return { ...state, ...{ currentCard: action.card } }
-        case ADD_QUESTION:
-          return { ...state, ...{ questions: [].concat(state.questions, "Type in new question...") } }
+        case SAVE_QUESTIONS:
+          return { ...state, ...{ questions: action.questions } }
         case SEND:
           console.log("sending data!")
-          return state;
+          return state
+        case TOGGLE_USER:
+          const newUsers = [].concat(state.users)
+          newUsers[action.index].selected = !newUsers[action.index].selected
+          const allSelected = newUsers.every((user) => user.selected)
+          return { ...state, ...{ users: newUsers }, ...{ allSelected: allSelected } }
+        case TOGGLE_ALL_USERS:
+          const newAllSelected = !state.allSelected
+          const toggleAllUsers = state.users.map(user => ({ ...user, ...{ selected: newAllSelected } }))
+          return { ...state, ...{ users: toggleAllUsers }, ...{ allSelected: newAllSelected } }
         default: 
-          return state;
+          return state
     }
 }

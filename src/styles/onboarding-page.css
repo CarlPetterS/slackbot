@@ -16,7 +16,7 @@
 }
 
 .card img {
-    max-width: calc(100% - 30px);
+    max-width: 100%;
     height: auto;
 }
 
