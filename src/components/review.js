@@ -4,15 +4,35 @@ import { connect } from 'react-redux'
 import { send, switchCard, cards } from '../actions/actions'
 import { Card } from '../containers/card'
 
-const ReviewDummy = ({ backToScheduleTime, send }) => (
+const ReviewDummy = ({ backToScheduleTime, send, questions, users, schedule }) => {
+    
+    let usersDisplay = users.reduce((usersString, user) => usersString + user.name + ", ", "")
+    usersDisplay = usersDisplay.substring(0, usersDisplay.length - 2)
+
+    return (
     <Card title="Great! You're already done!" 
           instructions="Review:" 
           progress={require("../images/progress_1.png")}>
-        <p>stuff</p>
+        <h1>Questions({questions.length}):</h1>
+        {questions.map((question, index) => 
+          <p key={index}>{question}</p>
+        )}
+        <h1>Users({users.length}):</h1>
+        <p>{usersDisplay}</p>
+
+        <p>Your check-ins will be sent out</p>
         <a onClick={backToScheduleTime}>Back</a>
         <a onClick={send}>Finish</a>
     </Card>
-)
+)}
+
+const mapStateToProps = state => {
+    return {
+        questions: state.questions,
+        users: state.users,
+        schedule: state.schedule
+    }
+}
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -21,4 +41,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export const Review = connect(null,mapDispatchToProps)(ReviewDummy)
+export const Review = connect(mapStateToProps,mapDispatchToProps)(ReviewDummy)
