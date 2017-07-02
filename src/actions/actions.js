@@ -4,6 +4,8 @@ export const SAVE_QUESTIONS = "SAVE_QUESTIONS"
 export const TOGGLE_USER = "TOGGLE_USER"
 export const TOGGLE_ALL_USERS = "TOGGLE_ALL_USERS"
 export const TOGGLE_DAY_REPEAT = "TOGGLE_DAY_REPEAT"
+export const SELECT_REPEAT_EVERY = "SELECT_REPEAT_EVERY"
+export const SELECT_REPEATS = "SELECT_REPEATS"
 
 export const cards = { 
     PICK_QUESTIONS: "PICK_QUESTIONS", 
@@ -34,4 +36,12 @@ export function toggleAllUsers() {
 
 export function toggleDayRepeat(day) {
     return { type: TOGGLE_DAY_REPEAT, day }
+}
+
+export function selectRepeatEvery(value) {
+    return { type: SELECT_REPEAT_EVERY, value }
+}
+
+export function selectRepeats(interval) {
+    return { type: SELECT_REPEATS, interval }
 }

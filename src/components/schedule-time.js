@@ -1,10 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { switchCard, cards, toggleDayRepeat } from '../actions/actions'
+import { switchCard, cards, toggleDayRepeat, selectRepeatEvery, selectRepeats } from '../actions/actions'
 import { Card } from '../containers/card'
 
-export const ScheduleTimeDummy = ({ backToSelectUsers, gotoReview, schedule, toggleDayRepeat }) => (
+export const ScheduleTimeDummy = ({ 
+    backToSelectUsers, 
+    gotoReview, 
+    schedule, 
+    toggleDayRepeat, 
+    selectRepeatEvery, 
+    selectRepeats 
+}) => (
     <Card title="When do you want to check-in with your team members?"
         instructions="Schedule Time:"
         progress={require("../images/progress_1.png")}>
@@ -12,13 +19,13 @@ export const ScheduleTimeDummy = ({ backToSelectUsers, gotoReview, schedule, tog
         <h4>Time of day</h4>
         <input type="time" value="01:00" />
         <h4>Repeats</h4>
-        <select>
+        <select value={schedule.repeats} onChange={(event) => selectRepeats(event.target.value)}>
             <option value="weekly">weekly</option>
             <option value="monthly">monthly</option>
             <option value="yearly">yearly</option>
         </select>
         <h4>Repeat every</h4>
-        <select>
+        <select value={schedule.repeat_every} onChange={(event) => selectRepeatEvery(event.target.value)}>
             {Array.apply(null, Array(30)).map((_,i) => 
                 <option key={i} value={i+1}>{i+1}</option>
             )}
@@ -45,6 +52,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        selectRepeats: (interval) => dispatch(selectRepeats(interval)),
+        selectRepeatEvery: (value) => dispatch(selectRepeatEvery(value)),
         toggleDayRepeat: (day) => dispatch(toggleDayRepeat(day)),
         backToSelectUsers: () => dispatch(switchCard(cards.SELECT_USERS)),
         gotoReview: () => dispatch(switchCard(cards.REVIEW))

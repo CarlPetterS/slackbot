@@ -5,6 +5,7 @@ import {
     TOGGLE_USER,
     TOGGLE_ALL_USERS,
     TOGGLE_DAY_REPEAT,
+    SELECT_REPEAT_EVERY,
     cards 
 } from '../actions/actions'
 
@@ -54,9 +55,13 @@ export default function onBoarding(state = initialState, action) {
           const toggleAllUsers = state.users.map(user => ({ ...user, ...{ selected: newAllSelected } }))
           return { ...state, ...{ users: toggleAllUsers }, ...{ allSelected: newAllSelected } }
         case TOGGLE_DAY_REPEAT:
-          const newSchedule = { ...state.schedule }
-          newSchedule.repeat_on[action.day] = !newSchedule.repeat_on[action.day]
-          return { ...state, ...{ schedule: newSchedule } }
+          const newDayRepeatSchedule = { ...state.schedule }
+          newDayRepeatSchedule.repeat_on[action.day] = !newDayRepeatSchedule.repeat_on[action.day]
+          return { ...state, ...{ schedule: newDayRepeatSchedule } }
+        case SELECT_REPEAT_EVERY:
+          const newRepeatEverySchedule = { ...state.schedule }
+          newRepeatEverySchedule.repeat_every = action.value
+          return { ...state, ...{ schedule: newRepeatEverySchedule } }
         default: 
           return state
     }
