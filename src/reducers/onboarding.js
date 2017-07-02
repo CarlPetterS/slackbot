@@ -23,7 +23,7 @@ const initialState = {
     currentCard: cards.PICK_QUESTIONS, 
     questions: ["What's going great?", "What could be better?", "How can I help?"],
     schedule: {
-        time: "01:00",
+        time: "13:00",
         repeats: "weekly",
         repeat_every: 1,
         repeat_on: {
