@@ -4,6 +4,7 @@ import {
     SAVE_QUESTIONS,
     TOGGLE_USER,
     TOGGLE_ALL_USERS,
+    TOGGLE_DAY_REPEAT,
     cards 
 } from '../actions/actions'
 
@@ -52,6 +53,10 @@ export default function onBoarding(state = initialState, action) {
           const newAllSelected = !state.allSelected
           const toggleAllUsers = state.users.map(user => ({ ...user, ...{ selected: newAllSelected } }))
           return { ...state, ...{ users: toggleAllUsers }, ...{ allSelected: newAllSelected } }
+        case TOGGLE_DAY_REPEAT:
+          const newSchedule = { ...state.schedule }
+          newSchedule.repeat_on[action.day] = !newSchedule.repeat_on[action.day]
+          return { ...state, ...{ schedule: newSchedule } }
         default: 
           return state
     }
