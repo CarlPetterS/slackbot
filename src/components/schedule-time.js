@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { switchCard, cards, toggleDayRepeat, selectRepeatEvery, selectRepeats } from '../actions/actions'
+import { switchCard, cards, toggleDayRepeat, selectRepeatEvery, selectRepeats, selectTime } from '../actions/actions'
 import { Card } from '../containers/card'
 
 export const ScheduleTimeDummy = ({ 
@@ -10,14 +10,15 @@ export const ScheduleTimeDummy = ({
     schedule, 
     toggleDayRepeat, 
     selectRepeatEvery, 
-    selectRepeats 
+    selectRepeats,
+    selectTime
 }) => (
     <Card title="When do you want to check-in with your team members?"
         instructions="Schedule Time:"
         progress={require("../images/progress_1.png")}>
 
         <h4>Time of day</h4>
-        <input type="time" value="01:00" />
+        <input type="time" value={schedule.time} onChange={(event) => selectTime(event.target.value)} />
         <h4>Repeats</h4>
         <select value={schedule.repeats} onChange={(event) => selectRepeats(event.target.value)}>
             <option value="weekly">weekly</option>
@@ -29,7 +30,7 @@ export const ScheduleTimeDummy = ({
             {Array.apply(null, Array(30)).map((_,i) => 
                 <option key={i} value={i+1}>{i+1}</option>
             )}
-        </select>weeks
+        </select>{schedule.repeats.substring(0, schedule.repeats.length - 2) + (schedule.repeat_every > 1 ? "s" : "")}
         <h4>Repeat on</h4>
         <input type="checkbox" checked={schedule.repeat_on.sun} value={schedule.repeat_on.sun} onChange={() => toggleDayRepeat('sun')}/>S
         <input type="checkbox" checked={schedule.repeat_on.mon} value={schedule.repeat_on.mon} onChange={() => toggleDayRepeat('mon')}/>M
@@ -52,6 +53,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        selectTime: (time) => dispatch(selectTime(time)),
         selectRepeats: (interval) => dispatch(selectRepeats(interval)),
         selectRepeatEvery: (value) => dispatch(selectRepeatEvery(value)),
         toggleDayRepeat: (day) => dispatch(toggleDayRepeat(day)),

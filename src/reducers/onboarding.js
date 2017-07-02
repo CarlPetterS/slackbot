@@ -6,6 +6,8 @@ import {
     TOGGLE_ALL_USERS,
     TOGGLE_DAY_REPEAT,
     SELECT_REPEAT_EVERY,
+    SELECT_REPEATS,
+    SELECT_TIME,
     cards 
 } from '../actions/actions'
 
@@ -21,7 +23,7 @@ const initialState = {
     currentCard: cards.PICK_QUESTIONS, 
     questions: ["What's going great?", "What could be better?", "How can I help?"],
     schedule: {
-        time: "1pm",
+        time: "01:00",
         repeats: "weekly",
         repeat_every: 1,
         repeat_on: {
@@ -38,30 +40,48 @@ const initialState = {
 
 export default function onBoarding(state = initialState, action) {
     switch(action.type) {
+
         case SWITCH_CARD: 
           return { ...state, ...{ currentCard: action.card } }
+
         case SAVE_QUESTIONS:
           return { ...state, ...{ questions: action.questions } }
+
         case SEND:
           console.log("sending data!")
           return state
+
         case TOGGLE_USER:
           const newUsers = [].concat(state.users)
           newUsers[action.index].selected = !newUsers[action.index].selected
           const allSelected = newUsers.every((user) => user.selected)
           return { ...state, ...{ users: newUsers }, ...{ allSelected: allSelected } }
+          
         case TOGGLE_ALL_USERS:
           const newAllSelected = !state.allSelected
           const toggleAllUsers = state.users.map(user => ({ ...user, ...{ selected: newAllSelected } }))
           return { ...state, ...{ users: toggleAllUsers }, ...{ allSelected: newAllSelected } }
+
         case TOGGLE_DAY_REPEAT:
           const newDayRepeatSchedule = { ...state.schedule }
           newDayRepeatSchedule.repeat_on[action.day] = !newDayRepeatSchedule.repeat_on[action.day]
           return { ...state, ...{ schedule: newDayRepeatSchedule } }
+
         case SELECT_REPEAT_EVERY:
           const newRepeatEverySchedule = { ...state.schedule }
           newRepeatEverySchedule.repeat_every = action.value
           return { ...state, ...{ schedule: newRepeatEverySchedule } }
+
+        case SELECT_REPEATS:
+          const newSelectRepeatsSchedule = { ...state.schedule }
+          newSelectRepeatsSchedule.repeats = action.interval
+          return { ...state, ...{ schedule: newSelectRepeatsSchedule } }
+
+        case SELECT_TIME:
+          const newSelectTimeSchedule = { ...state.schedule }
+          newSelectTimeSchedule.time = action.time
+          return { ...state, ...{ schedule: newSelectTimeSchedule } }
+
         default: 
           return state
     }
