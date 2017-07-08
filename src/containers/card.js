@@ -6,6 +6,6 @@ export const Card = ({ title, instructions, progress, children }) => (
         <img src={progress} alt="Progress" />
         <hr/>
         <h2>{instructions}</h2>
-        {children}
+        <div className="card__content">{children}</div>
     </div>
 )
