@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
 import { Card } from '../containers/card'
 import { switchCard, cards, saveQuestions } from '../actions/actions'
 
@@ -54,7 +53,7 @@ class PickQuestionsDummy extends Component {
                 <ul>
                   {this.state.questions.map((question, index) => (
                       <li key={index}>
-                          <input type="text" name={"question_" + index} 
+                          <input className="pickquestions__input" type="text" name={"question_" + index} 
                                  value={question} 
                                  onChange={this.handleChange.bind(this, index)}
                                  onFocus={this.handleFocus}
@@ -65,8 +64,8 @@ class PickQuestionsDummy extends Component {
                   ))}
                 </ul>
               </form>
-              <a onClick={this.addQuestion}>+ Add more questions (optional)...</a>
-              <a onClick={() => { saveQuestions(this.state.questions); gotoSelectUsers() }}>Select Team Members</a>
+              <a className="pickquestions__addmore" onClick={this.addQuestion}>+ Add more questions (optional)...</a>
+              <a onClick={() => { saveQuestions(this.state.questions); gotoSelectUsers() }}className="button button-large">Select Team Members</a>
             </Card>
         )
     }

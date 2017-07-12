@@ -63,3 +63,34 @@ a {
 li {
   list-style: none;
 }
+
+.pickquestions__input {
+  display: block;
+  width:calc(100% - 6px);
+  margin:0;
+  height: 30px;
+  background: #FBFBFC;
+  border: 2px solid #ECEEF0;
+  border-radius: 3px;
+
+}
+
+.pickquestions__addmore {
+  font-size: 10px;
+  text-decoration: underline;
+}
+
+.button {
+  display: block;
+  background: #3BAEDA;
+  border-radius: 3px;
+  font-size: 14px;
+  color:white;
+  margin-top:30px;
+  font-family: Adelle-Sans;
+  font-weight: normal;
+  line-height:20px;
+  padding-bottom:15px;
+  padding-top:15px;
+  text-align:center;
+}
