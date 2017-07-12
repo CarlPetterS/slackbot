@@ -60,7 +60,7 @@ class PickQuestionsDummy extends Component {
                           />
                           <a className="pickquestions__remove"
                             onClick={this.removeQuestion.bind(this, index)} >X</a>
-                          <br />
+                          
                       </li>
                   ))}
                 </ul>

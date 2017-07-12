@@ -14,12 +14,16 @@ import { SearchBar } from './search-bar'
 export const SelectUsersDummy = ({ gotoScheduleTime, backToPickQuestions, users, toggleUser, toggleAllUsers, allSelected}) => (
     <Card title="Select team members to check-in with."
         instructions="Select Users:"
-        progress={require("../images/progress_1.png")}>
+        progress={require("../images/progress_2.png")}>
         <SearchBar />
-        <input type="checkbox" onChange={toggleAllUsers} checked={allSelected} />Select All<br />
+        <input className="user__selectallcheckbox" type="checkbox" onChange={toggleAllUsers} checked={allSelected} /><a className="user__selectall">Select All</a>
         <ul>
             {users.map((user, index) => (
-                <li key={index}><input type='checkbox' onChange={toggleUser.bind(this, index)} checked={user.selected} /><img src={user.image} alt="" /> {user.name}, {user.user_name}</li>
+                <li className="user" key={index}>
+                    <input type='checkbox' className="user__select" onChange={toggleUser.bind(this, index)} checked={user.selected} />
+                    <img className="user__img" src={user.image} alt="" />
+                    <a className="user__name" onClick={toggleUser.bind(this, index)}>{user.name}, <span>{user.user_name}</span></a>
+                </li>
             ))}
         </ul>
         <a className="button button-next button-shared" onClick={gotoScheduleTime}>Schedule Time</a>

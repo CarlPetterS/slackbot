@@ -15,7 +15,7 @@ export const ScheduleTimeDummy = ({
 }) => (
     <Card title="When do you want to check-in with your team members?"
         instructions="Schedule Time:"
-        progress={require("../images/progress_1.png")}>
+        progress={require("../images/progress_3.png")}>
 
         <h4>Time of day</h4>
         <input type="time" value={schedule.time} onChange={(event) => selectTime(event.target.value)} />

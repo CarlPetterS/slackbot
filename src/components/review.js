@@ -12,7 +12,7 @@ const ReviewDummy = ({ backToScheduleTime, send, questions, users, schedule }) =
     return (
     <Card title="Great! You're already done!" 
           instructions="Review:" 
-          progress={require("../images/progress_1.png")}>
+          progress={require("../images/progress_4.png")}>
         <h1>Questions({questions.length}):</h1>
         {questions.map((question, index) => 
           <p key={index}>{question}</p>

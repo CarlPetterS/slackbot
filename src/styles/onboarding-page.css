@@ -1,4 +1,5 @@
 .card__container {
+    margin-top:95px;
     display: block;
     margin-left: 15px;
     margin-right: 15px;
@@ -75,6 +76,7 @@ li {
   padding-left:15px;
   line-height: 30px;
   font-size: 12px;
+  margin-bottom:15px;
 }
 
 .pickquestions__input:focus {
@@ -92,7 +94,7 @@ li {
   font-family: 'Arial Narrow Bold', sans-serif, Helvetica, sans-serif;
   right:45px;
   font-size: 10px;
-  margin-top: -23px;
+  margin-top: -40px;
   width: 15px;
   height:15px;
   text-align: center;
@@ -133,4 +135,74 @@ li {
 
 .button-shared-back {
   width:30%;
+}
+
+.searchbar {
+  display: block;
+  margin:0;
+  width:calc(100% - 21px);
+  background: #FBFBFC;
+  border: 2px solid #ECEEF0;
+  border-radius: 15px;
+  padding-left:15px;
+  line-height: 30px;
+  font-size: 12px;
+}
+
+.searchbar:hover {
+  border: 2px solid black;
+  outline:0;
+}
+
+.searchbar__suggestions {
+  position:absolute;
+  background: #FBFBFC;
+  border: 1px solid #ECEEF0;
+}
+
+.user {
+  margin-top: 8px;
+  border-top: 1px solid #ECEEF0;
+}
+
+.user__selectall {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-left: 30px;
+  font-family: Adelle-sans;
+  font-size: 12px;
+  color:black;
+}
+
+.user__selectallcheckbox {
+  margin-top: 15px;
+  float:left;
+}
+
+.user__name {
+  display:block;
+  font-family: Adelle-sans;
+  font-weight:bold;
+  color:black;
+  margin-left: 75px;
+  margin-top:12px;
+}
+
+.user__name > span {
+  font-weight: normal;
+  color:#c8c8c8;
+}
+
+.user__img {
+  margin-top:8px;
+  margin-left:15px;
+  border-radius:5px;
+  width:30px;
+  height:30px;
+  float:left;
+}
+
+.user__select {
+  float:left;
+  margin-top:15px;
 }

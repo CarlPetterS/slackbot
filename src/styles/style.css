@@ -49,6 +49,8 @@ em {
 }
 
 .header {
+    position:fixed;
+    top:0;
     height: 80px;
     width: 100%;
     background: #656D78;

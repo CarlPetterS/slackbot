@@ -79,7 +79,7 @@ class SearchBarDummy extends Component {
                onChange={this.handleChange}
                onFocus={this.handleFocus}
                onBlur={this.handleBlur} />
-        <ul>
+        <ul className="searchbar__suggestions">
           {this.state.suggestions.map((suggestion, index) =>
             <li key={index} onClick={() => this.handleSuggestionClick(suggestion)}>{suggestion}</li>)}
         </ul>
