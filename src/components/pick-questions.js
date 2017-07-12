@@ -58,7 +58,8 @@ class PickQuestionsDummy extends Component {
                                  onChange={this.handleChange.bind(this, index)}
                                  onFocus={this.handleFocus}
                           />
-                          <a onClick={this.removeQuestion.bind(this, index)} >X</a>
+                          <a className="pickquestions__remove"
+                            onClick={this.removeQuestion.bind(this, index)} >X</a>
                           <br />
                       </li>
                   ))}

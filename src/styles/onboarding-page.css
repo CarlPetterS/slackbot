@@ -62,22 +62,40 @@ a {
 
 li {
   list-style: none;
+  margin:0;
 }
 
 .pickquestions__input {
   display: block;
-  width:calc(100% - 6px);
   margin:0;
-  height: 30px;
+  width:calc(100% - 21px);
   background: #FBFBFC;
   border: 2px solid #ECEEF0;
   border-radius: 3px;
+  padding-left:15px;
+  line-height: 30px;
+  font-size: 12px;
+}
 
+.pickquestions__input:focus {
+  border: 2px solid black;
+  outline:0;
 }
 
 .pickquestions__addmore {
   font-size: 10px;
   text-decoration: underline;
+}
+
+.pickquestions__remove {
+  position:absolute;
+  font-family: 'Arial Narrow Bold', sans-serif, Helvetica, sans-serif;
+  right:45px;
+  font-size: 10px;
+  margin-top: -23px;
+  width: 15px;
+  height:15px;
+  text-align: center;
 }
 
 .button {
@@ -93,4 +111,5 @@ li {
   padding-bottom:15px;
   padding-top:15px;
   text-align:center;
+  letter-spacing: 1px;
 }
