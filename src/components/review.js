@@ -21,8 +21,8 @@ const ReviewDummy = ({ backToScheduleTime, send, questions, users, schedule }) =
         <p>{usersDisplay}</p>
 
         <p>Your check-ins will be sent out</p>
-        <a onClick={backToScheduleTime}>Back</a>
-        <a onClick={send}>Finish</a>
+        <a className="button button-next button-shared" onClick={send}>Finish</a>
+        <a className="button button-back button-shared-back" onClick={backToScheduleTime}>Back</a>
     </Card>
 )}
 

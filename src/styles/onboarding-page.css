@@ -100,10 +100,8 @@ li {
 
 .button {
   display: block;
-  background: #3BAEDA;
   border-radius: 3px;
   font-size: 14px;
-  color:white;
   margin-top:30px;
   font-family: Adelle-Sans;
   font-weight: normal;
@@ -112,4 +110,27 @@ li {
   padding-top:15px;
   text-align:center;
   letter-spacing: 1px;
+}
+
+.button-next {
+  background: #3BAEDA;
+  color:white;
+}
+
+.button-back {
+  background: #D8D8D8;
+  color: #656D78;
+}
+
+.button-large {
+  display: block;
+}
+
+.button-shared {
+  width:calc(70% - 8px);
+  float:right;
+}
+
+.button-shared-back {
+  width:30%;
 }

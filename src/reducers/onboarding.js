@@ -21,7 +21,7 @@ const users = rawUsers
 const initialState = {
     users: users,
     allSelected: true,
-    currentCard: cards.PICK_QUESTIONS,
+    currentCard: cards.SELECT_USERS,
     questions: ["What's going great?", "What could be better?", "How can I help?"],
     schedule: {
         time: "13:00",

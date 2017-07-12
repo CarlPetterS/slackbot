@@ -40,8 +40,8 @@ export const ScheduleTimeDummy = ({
         <input type="checkbox" checked={schedule.repeat_on.fri} value={schedule.repeat_on.fri} onChange={() => toggleDayRepeat('fri')}/>F
         <input type="checkbox" checked={schedule.repeat_on.sat} value={schedule.repeat_on.sat} onChange={() => toggleDayRepeat('sat')}/>S
         <h4><strong>Summary</strong></h4>
-        <a onClick={gotoReview}>Review</a>
-        <a onClick={backToSelectUsers}>Back</a>
+        <a className="button button-next button-shared"onClick={gotoReview}>Review</a>
+        <a className="button button-back button-shared-back" onClick={backToSelectUsers}>Back</a>
     </Card>
 )
 

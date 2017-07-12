@@ -22,8 +22,8 @@ export const SelectUsersDummy = ({ gotoScheduleTime, backToPickQuestions, users,
                 <li key={index}><input type='checkbox' onChange={toggleUser.bind(this, index)} checked={user.selected} /><img src={user.image} alt="" /> {user.name}, {user.user_name}</li>
             ))}
         </ul>
-        <a onClick={gotoScheduleTime}>Schedule Time</a>
-        <a onClick={backToPickQuestions}>Back</a>
+        <a className="button button-next button-shared" onClick={gotoScheduleTime}>Schedule Time</a>
+        <a className="button button-back button-shared-back" onClick={backToPickQuestions}>Back</a>
     </Card>
 )
 

@@ -66,7 +66,7 @@ class PickQuestionsDummy extends Component {
                 </ul>
               </form>
               <a className="pickquestions__addmore" onClick={this.addQuestion}>+ Add more questions (optional)...</a>
-              <a onClick={() => { saveQuestions(this.state.questions); gotoSelectUsers() }}className="button button-large">Select Team Members</a>
+              <a onClick={() => { saveQuestions(this.state.questions); gotoSelectUsers() }} className="button button-next button-large">Select Team Members</a>
             </Card>
         )
     }
