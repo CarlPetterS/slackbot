@@ -238,7 +238,7 @@ li {
   font-family: Adelle-sans;
   color:black;
   font-size:10px;
-  margin-top:55px;
+  margin-top:30px;
   margin-bottom:-15px;
 }
 
@@ -302,9 +302,8 @@ li {
 }
 
 .schedule__repeatevery {
-  float:left;
   font-family: Adelle-sans;
-  display: block;
+  display: inline;
   background: #96A0AD;
   color:white;
   padding-right:8px; 
@@ -330,10 +329,23 @@ li {
 }
 
 .schedule__weekdays {
-  display:block;
+  display:none;
   clear:both
 }
 
 .schedule__weekdays--buttons {
-
+  margin-bottom:15px;
+  min-width:120px;
+  display: flex;
+  justify-content: space-between;
+}
+.schedule__weekdays--buttons > button {
+  flex:1;
+  background:#EAECEF;
+  border: 0;
+  border-radius: 3px;
+  color:#96A0AE;
+  padding-top:8px;
+  padding-bottom:8px;
+  margin-right:8px;
 }

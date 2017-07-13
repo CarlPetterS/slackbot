@@ -51,12 +51,23 @@ export const ScheduleTimeDummy = ({
         <input type="checkbox" checked={schedule.repeat_on.mon} value={schedule.repeat_on.mon} onChange={() => toggleDayRepeat('mon')}/>M
         <input type="checkbox" checked={schedule.repeat_on.tue} value={schedule.repeat_on.tue} onChange={() => toggleDayRepeat('tue')}/>T
         </div>
+        <div className="schedule__weekdays--buttons">
+            <button>Sun</button>
+            <button>Mon</button>
+            <button>Tue</button>
+        </div>
         </div>
         <div className="schedule__weekdays">
         <input type="checkbox" checked={schedule.repeat_on.wed} value={schedule.repeat_on.wed} onChange={() => toggleDayRepeat('wed')}/>W
         <input type="checkbox" checked={schedule.repeat_on.thu} value={schedule.repeat_on.thu} onChange={() => toggleDayRepeat('thu')}/>T
         <input type="checkbox" checked={schedule.repeat_on.fri} value={schedule.repeat_on.fri} onChange={() => toggleDayRepeat('fri')}/>F
         <input type="checkbox" checked={schedule.repeat_on.sat} value={schedule.repeat_on.sat} onChange={() => toggleDayRepeat('sat')}/>S
+        </div>
+        <div className="schedule__weekdays--buttons">
+            <button>Wed</button>
+            <button>Thu</button>
+            <button>Fri</button>
+            <button>Sat</button>
         </div>
         <h4 className="schedule__summary"><strong>Summary</strong>  {' ' + schedule.time + ' '} 
             every {schedule.repeats.substring(0,schedule.repeats.length-2)} at 
