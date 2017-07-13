@@ -52,7 +52,7 @@ export const ScheduleTimeDummy = ({
         <input type="checkbox" checked={schedule.repeat_on.tue} value={schedule.repeat_on.tue} onChange={() => toggleDayRepeat('tue')}/>T
         </div>
         <div className="schedule__weekdays--buttons">
-            <a className={schedule.repeat_on['sun'] ? 'weekday button-next': 'weekday'} onClick={() => toggleDayRepeat('sun')}>Sun</a>
+            <a className={schedule.repeat_on['sun'] ? 'weekday weekday--first button-next': 'weekday weekday--first'} onClick={() => toggleDayRepeat('sun')}>Sun</a>
             <a className={schedule.repeat_on['mon'] ? 'weekday button-next': 'weekday'} onClick={() => toggleDayRepeat('mon')}
             >Mon</a>
             <a className={schedule.repeat_on['tue'] ? 'weekday button-next': 'weekday'} onClick={() => toggleDayRepeat('tue')}
@@ -65,8 +65,8 @@ export const ScheduleTimeDummy = ({
         <input type="checkbox" checked={schedule.repeat_on.fri} value={schedule.repeat_on.fri} onChange={() => toggleDayRepeat('fri')}/>F
         <input type="checkbox" checked={schedule.repeat_on.sat} value={schedule.repeat_on.sat} onChange={() => toggleDayRepeat('sat')}/>S
         </div>
-        <div className="schedule__weekdays--buttons">
-            <a className={schedule.repeat_on['wed'] ? 'weekday button-next': 'weekday'} onClick={() => toggleDayRepeat('wed')}
+        <div className="schedule__weekdays--buttons weekdays--extended">
+            <a className={schedule.repeat_on['wed'] ? 'weekday weekday--first weekday--margin button-next': 'weekday weekday--first weekday--margin'} onClick={() => toggleDayRepeat('wed')}
             >Wed</a>
             <a className={schedule.repeat_on['thu'] ? 'weekday button-next': 'weekday'} onClick={() => toggleDayRepeat('thu')}
             >Thu</a>
