@@ -8,6 +8,9 @@ import { Container } from './containers/container'
 import { Onboard } from './components/onboard'
 
 import './styles/style.css'
+import './styles/landing-page.css'
+import './styles/onboarding-page.css'
+
 
 class App extends Component {
   render() {

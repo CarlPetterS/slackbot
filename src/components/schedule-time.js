@@ -39,20 +39,25 @@ export const ScheduleTimeDummy = ({
             <option value="monthly">monthly</option>
             <option value="yearly">yearly</option>
         </select>
-        <select className="schedule__repeatevery" value={schedule.repeat_every} onChange={(event) => selectRepeatEvery(event.target.value)}>
-            {Array.apply(null, Array(30)).map((_,i) => 
-                <option key={i} value={i+1}>{i+1}</option>
+        <select className="schedule__repeatevery" 
+        value={schedule.repeat_every} onChange={(event) => selectRepeatEvery(event.target.value)}>
+            {Array(30).fill(null).map((_,i) => 
+                <option key={i} value={(i+1)}>{i+1}</option>
             )}
         </select>
         <p className="schedule__repeatevery--date">{schedule.repeats.substring(0, schedule.repeats.length - 2) + (schedule.repeat_every > 1 ? "s" : "")}</p>
+        <div className="schedule__weekdays">
         <input type="checkbox" checked={schedule.repeat_on.sun} value={schedule.repeat_on.sun} onChange={() => toggleDayRepeat('sun')}/>S
         <input type="checkbox" checked={schedule.repeat_on.mon} value={schedule.repeat_on.mon} onChange={() => toggleDayRepeat('mon')}/>M
         <input type="checkbox" checked={schedule.repeat_on.tue} value={schedule.repeat_on.tue} onChange={() => toggleDayRepeat('tue')}/>T
         </div>
+        </div>
+        <div className="schedule__weekdays">
         <input type="checkbox" checked={schedule.repeat_on.wed} value={schedule.repeat_on.wed} onChange={() => toggleDayRepeat('wed')}/>W
         <input type="checkbox" checked={schedule.repeat_on.thu} value={schedule.repeat_on.thu} onChange={() => toggleDayRepeat('thu')}/>T
         <input type="checkbox" checked={schedule.repeat_on.fri} value={schedule.repeat_on.fri} onChange={() => toggleDayRepeat('fri')}/>F
         <input type="checkbox" checked={schedule.repeat_on.sat} value={schedule.repeat_on.sat} onChange={() => toggleDayRepeat('sat')}/>S
+        </div>
         <h4 className="schedule__summary"><strong>Summary</strong>  {' ' + schedule.time + ' '} 
             every {schedule.repeats.substring(0,schedule.repeats.length-2)} at 
             {' ' + weekday.filter(day => schedule.repeat_on[day.substring(0,3)]).join(', ')}

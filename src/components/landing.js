@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import '../styles/landing-page.css'
-
 export const Landing = () => (
     <main>
         <div className="landing__signin">

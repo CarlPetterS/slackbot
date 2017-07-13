@@ -7,7 +7,6 @@ import { SelectUsers } from './select-users'
 import { ScheduleTime } from './schedule-time'
 import { Review } from './review'
 
-import '../styles/onboarding-page.css'
 
 const OnboardDummy = ({ currentCard }) => {
 
