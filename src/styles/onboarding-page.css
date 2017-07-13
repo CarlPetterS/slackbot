@@ -100,43 +100,6 @@ li {
   text-align: center;
 }
 
-.button {
-  display: block;
-  border-radius: 3px;
-  font-size: 14px;
-  margin-top:30px;
-  font-family: Adelle-Sans;
-  font-weight: normal;
-  line-height:20px;
-  padding-bottom:15px;
-  padding-top:15px;
-  text-align:center;
-  letter-spacing: 1px;
-}
-
-.button-next {
-  background: #3BAEDA;
-  color:white;
-}
-
-.button-back {
-  background: #D8D8D8;
-  color: #656D78;
-}
-
-.button-large {
-  display: block;
-}
-
-.button-shared {
-  width:calc(70% - 8px);
-  float:right;
-}
-
-.button-shared-back {
-  width:30%;
-}
-
 .searchbar {
   display: block;
   margin:0;
@@ -339,8 +302,11 @@ li {
   display: flex;
   justify-content: space-between;
 }
-.schedule__weekdays--buttons > button {
+.weekday {
   flex:1;
+  font-size:10px;
+  font-family: Adelle-sans;
+  text-align: center;
   background:#EAECEF;
   border: 0;
   border-radius: 3px;
@@ -348,4 +314,41 @@ li {
   padding-top:8px;
   padding-bottom:8px;
   margin-right:8px;
+}
+
+.button {
+  display: block;
+  border-radius: 3px;
+  font-size: 14px;
+  margin-top:30px;
+  font-family: Adelle-Sans;
+  font-weight: normal;
+  line-height:20px;
+  padding-bottom:15px;
+  padding-top:15px;
+  text-align:center;
+  letter-spacing: 1px;
+}
+
+.button-next {
+  background: #3BAEDA;
+  color:white;
+}
+
+.button-back {
+  background: #D8D8D8;
+  color: #656D78;
+}
+
+.button-large {
+  display: block;
+}
+
+.button-shared {
+  width:calc(70% - 8px);
+  float:right;
+}
+
+.button-shared-back {
+  width:30%;
 }

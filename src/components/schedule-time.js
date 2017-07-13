@@ -52,9 +52,11 @@ export const ScheduleTimeDummy = ({
         <input type="checkbox" checked={schedule.repeat_on.tue} value={schedule.repeat_on.tue} onChange={() => toggleDayRepeat('tue')}/>T
         </div>
         <div className="schedule__weekdays--buttons">
-            <button>Sun</button>
-            <button>Mon</button>
-            <button>Tue</button>
+            <a className={schedule.repeat_on['sun'] ? 'weekday button-next': 'weekday'} onClick={() => toggleDayRepeat('sun')}>Sun</a>
+            <a className={schedule.repeat_on['mon'] ? 'weekday button-next': 'weekday'} onClick={() => toggleDayRepeat('mon')}
+            >Mon</a>
+            <a className={schedule.repeat_on['tue'] ? 'weekday button-next': 'weekday'} onClick={() => toggleDayRepeat('tue')}
+            >Tue</a>
         </div>
         </div>
         <div className="schedule__weekdays">
@@ -64,10 +66,14 @@ export const ScheduleTimeDummy = ({
         <input type="checkbox" checked={schedule.repeat_on.sat} value={schedule.repeat_on.sat} onChange={() => toggleDayRepeat('sat')}/>S
         </div>
         <div className="schedule__weekdays--buttons">
-            <button>Wed</button>
-            <button>Thu</button>
-            <button>Fri</button>
-            <button>Sat</button>
+            <a className={schedule.repeat_on['wed'] ? 'weekday button-next': 'weekday'} onClick={() => toggleDayRepeat('wed')}
+            >Wed</a>
+            <a className={schedule.repeat_on['thu'] ? 'weekday button-next': 'weekday'} onClick={() => toggleDayRepeat('thu')}
+            >Thu</a>
+            <a className={schedule.repeat_on['fri'] ? 'weekday button-next': 'weekday'} onClick={() => toggleDayRepeat('fri')}
+            >Fri</a>
+            <a className={schedule.repeat_on['sat'] ? 'weekday button-next': 'weekday'} onClick={() => toggleDayRepeat('sat')}
+            >Sat</a>
         </div>
         <h4 className="schedule__summary"><strong>Summary</strong>  {' ' + schedule.time + ' '} 
             every {schedule.repeats.substring(0,schedule.repeats.length-2)} at 
