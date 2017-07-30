@@ -20,7 +20,7 @@ class OnboardDummy extends Component {
       fetch('/api/getToken?code=' + code)
         .then(response => response.json())
         .then(response => fetch('/api/getInformation', {method:'POST', body: { token:response.token }}))
-        .then(responso => response.json())
+        .then(response => response.json())
         .then(response => console.log(response))
     }
   }
