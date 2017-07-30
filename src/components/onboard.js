@@ -18,7 +18,7 @@ class OnboardDummy extends Component {
       console.log("ERROR")
     } else {
       fetch('https://www.speakupcheckin.com/api/getToken?code=' + code)
-        .then(response => {console.log(respone); return response.json()})
+        .then(response => {console.log(response); return response.json()})
         .then(response => fetch('https://www.speakupcheckin.com/api/getInformation', {method:'POST', body: { token:response.token }}))
         .then(response => response.json())
         .then(response => console.log(response))
