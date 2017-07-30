@@ -1,3 +1,4 @@
+export const GET_USERS           = "GET_USERS"
 export const SWITCH_CARD = "SWITCH_CARD"
 export const SEND = "SEND"
 export const SAVE_QUESTIONS = "SAVE_QUESTIONS"
@@ -16,6 +17,10 @@ export const cards = {
     SELECT_USERS: "SELECT_USERS",
     SCHEDULE_TIME: "SCHEDULE_TIME",
     REVIEW: "REVIEW"
+}
+
+export function getUsers(rawUsers) {
+    return { type: GET_USERS, rawUsers }
 }
 
 export function switchCard(card) {

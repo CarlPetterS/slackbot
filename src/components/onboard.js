@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import fetch from 'node-fetch'
 
-import { cards, saveCode } from '../actions/actions'
+import { cards, saveCode, getUsers } from '../actions/actions'
 import { PickQuestions } from './pick-questions'
 import { SelectUsers } from './select-users'
 import { ScheduleTime } from './schedule-time'
@@ -13,12 +13,14 @@ class OnboardDummy extends Component {
     super(props)
 
     const code = new URLSearchParams(props.location.search).get('code')
+
     if (code === null) {
       console.log("ERROR")
     } else {
       fetch('/api/getToken?code=' + code)
         .then(response => response.json())
-        .then(response => fetch('/api/getInformation', {method:post, body: { token:response.token }}))
+        .then(response => fetch('/api/getInformation', {method:'POST', body: { token:response.token }}))
+        .then(responso => response.json())
         .then(response => console.log(response))
     }
   }
@@ -44,7 +46,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    saveCode: (code) => dispatch(saveCode(code))
+    saveCode: (code) => dispatch(saveCode(code)),
+    getUsers: (users) => dispatch(getUsers(users))
   }
 }
 

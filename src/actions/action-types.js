@@ -1,3 +1,4 @@
+export const GET_USERS           = "GET_USERS"
 export const SWITCH_CARD         = "SWITCH_CARD"
 export const SEND                = "SEND"
 export const SAVE_QUESTIONS      = "SAVE_QUESTIONS"
