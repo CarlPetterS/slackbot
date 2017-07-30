@@ -13,11 +13,12 @@ class OnboardDummy extends Component {
     super(props)
 
     let code = new URLSearchParams(props.location.search).get('code')
+    console.log(code)
     if (code === null) {
       console.log("ERROR")
     } else {
       fetch('https://www.speakupcheckin.com/api/getToken?code=' + code)
-        .then(response => response.json())
+        .then(response => {console.log(respone); return response.json()})
         .then(response => fetch('https://www.speakupcheckin.com/api/getInformation', {method:'POST', body: { token:response.token }}))
         .then(response => response.json())
         .then(response => console.log(response))
