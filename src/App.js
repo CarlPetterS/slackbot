@@ -21,7 +21,6 @@ class App extends Component {
             <Route exact path='/' component={Landing} />
             <Route path='/onboard' component={Onboard} />
           </Switch>
-        <Footer />
       </Container>
     );
   }

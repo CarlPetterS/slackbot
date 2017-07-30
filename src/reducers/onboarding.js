@@ -9,6 +9,8 @@ import {
     SELECT_REPEAT_EVERY,
     SELECT_REPEATS,
     SELECT_TIME,
+    SAVE_TOKEN,
+    SAVE_CODE,
     cards
 } from '../actions/actions'
 
@@ -16,12 +18,15 @@ const rawUsers = JSON.parse('[{"id":"U4BKGQUKT","name":"GoodTalk","user_name":"g
 
 const users = rawUsers
   .filter(user => !user.is_bot)
-  .map(user => ({ ...user, ...{ selected: true } }))
+  .map(user => Object.assign({},user,{ selected: true }))
 
 const initialState = {
+    code: null,
+    token: null,
     users: users,
     allSelected: true,
-    currentCard: cards.SCHEDULE_TIME,
+    timeZoneOffset: new Date().getTimezoneOffset(),
+    currentCard: cards.PICK_QUESTIONS,
     questions: ["What's going great?", "What could be better?", "How can I help?"],
     schedule: {
         time: "13:00",
@@ -43,10 +48,10 @@ export default function onBoarding(state = initialState, action) {
     switch(action.type) {
 
         case SWITCH_CARD:
-          return { ...state, currentCard: action.card }
+          return Object.assign({}, state, { currentCard: action.card})
 
         case SAVE_QUESTIONS:
-          return { ...state, questions: action.questions }
+          return Object.assign({}, state, { questions: action.questions})
 
         case SEND:
           console.log("sending data!")
@@ -56,38 +61,44 @@ export default function onBoarding(state = initialState, action) {
           const newUsers = [].concat(state.users)
           newUsers[action.index].selected = !newUsers[action.index].selected
           const allSelected = newUsers.every((user) => user.selected)
-          return { ...state, users: newUsers, allSelected: allSelected }
+          return Object.assign({}, state,{ users: newUsers},{ allSelected: allSelected })
 
         case TOGGLE_ALL_USERS:
           const newAllSelected = !state.allSelected
-          const toggleAllUsers = state.users.map(user => ({ ...user, selected: newAllSelected }))
-          return { ...state, users: toggleAllUsers, allSelected: newAllSelected }
+          const toggleAllUsers = state.users.map(user => Object.assign({}, user, { selected: newAllSelected }))
+          return Object.assign({}, state, {users: toggleAllUsers},{ allSelected: newAllSelected })
 
         case SELECT_USER:
           const newSelectUsers = [].concat(state.users)
           newSelectUsers[action.index].selected = true
           const allSelectedSelect = newSelectUsers.every((user) => user.selected)
-          return { ...state, users: newSelectUsers, allSelected: allSelectedSelect }
+          return Object.assign({}, state,{ users: newSelectUsers},{ allSelected: allSelectedSelect })
 
         case TOGGLE_DAY_REPEAT:
-          const newDayRepeatSchedule = { ...state.schedule }
+          const newDayRepeatSchedule = Object.assign(state.schedule)
           newDayRepeatSchedule.repeat_on[action.day] = !newDayRepeatSchedule.repeat_on[action.day]
-          return { ...state, schedule: newDayRepeatSchedule }
+          return Object.assign({}, state, { schedule: newDayRepeatSchedule })
 
         case SELECT_REPEAT_EVERY:
-          const newRepeatEverySchedule = { ...state.schedule }
+          const newRepeatEverySchedule = Object.assign(state.schedule)
           newRepeatEverySchedule.repeat_every = action.value
-          return { ...state, schedule: newRepeatEverySchedule }
+          return Object.assign({}, state, { schedule: newRepeatEverySchedule })
 
         case SELECT_REPEATS:
-          const newSelectRepeatsSchedule = { ...state.schedule }
+          const newSelectRepeatsSchedule = Object.assign({},state.schedule)
           newSelectRepeatsSchedule.repeats = action.interval
-          return { ...state, schedule: newSelectRepeatsSchedule }
+          return Object.assign( {},state,{ schedule: newSelectRepeatsSchedule})
 
         case SELECT_TIME:
-          const newSelectTimeSchedule = { ...state.schedule }
+          const newSelectTimeSchedule = Object.assign( state.schedule )
           newSelectTimeSchedule.time = action.time
-          return { ...state, ...{ schedule: newSelectTimeSchedule } }
+          return Object.assign({ state, schedule: newSelectTimeSchedule })
+        
+        case SAVE_CODE:
+          return Object.assign({},state, {token: action.code })
+        
+        case SAVE_TOKEN:
+          return Object.assign({ state, token: action.token })
 
         default:
           return state

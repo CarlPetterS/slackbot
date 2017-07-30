@@ -8,6 +8,8 @@ export const TOGGLE_DAY_REPEAT = "TOGGLE_DAY_REPEAT"
 export const SELECT_REPEAT_EVERY = "SELECT_REPEAT_EVERY"
 export const SELECT_REPEATS = "SELECT_REPEATS"
 export const SELECT_TIME = "SELECT_TIME"
+export const SAVE_CODE = "SAVE_CODE"
+export const SAVE_TOKEN = "SAVE_TOKEN"
 
 export const cards = {
     PICK_QUESTIONS: "PICK_QUESTIONS",
@@ -54,4 +56,12 @@ export function selectRepeats(interval) {
 
 export function selectTime(time) {
     return { type: SELECT_TIME, time }
+}
+
+export function saveCode(code) {
+    return { type: SAVE_CODE, code }
+}
+
+export function saveToken(token) {
+    return { type: SAVE_TOKEN, token }
 }
