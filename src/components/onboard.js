@@ -12,14 +12,13 @@ class OnboardDummy extends Component {
   constructor(props) {
     super(props)
 
-    const code = new URLSearchParams(props.location.search).get('code')
-
+    let code = new URLSearchParams(props.location.search).get('code')
     if (code === null) {
       console.log("ERROR")
     } else {
-      fetch('/api/getToken?code=' + code)
+      fetch('https://www.speakupcheckin.com/api/getToken?code=' + code)
         .then(response => response.json())
-        .then(response => fetch('/api/getInformation', {method:'POST', body: { token:response.token }}))
+        .then(response => fetch('https://www.speakupcheckin.com/api/getInformation', {method:'POST', body: { token:response.token }}))
         .then(response => response.json())
         .then(response => console.log(response))
     }
