@@ -45,7 +45,7 @@ class OnboardDummy extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentCard: state.currentCard
+    currentCard: state.currentCard,
   }
 }
 

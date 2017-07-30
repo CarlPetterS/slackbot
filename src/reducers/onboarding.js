@@ -43,6 +43,7 @@ export default function onBoarding(state = initialState, action) {
     switch(action.type) {
 
         case GET_USERS:
+          console.log(action.rawUsers)
           const users = action.rawUsers
             .filter(user => !user.is_bot)
             .map(user => Object.assign({},user,{ selected: true }))
@@ -99,6 +100,7 @@ export default function onBoarding(state = initialState, action) {
           return Object.assign({},state, {token: action.code })
         
         case SAVE_TOKEN:
+          console.log(action.token)
           return Object.assign({ state, token: action.token })
 
         default:
