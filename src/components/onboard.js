@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import fetch from 'node-fetch'
 
-import { cards, saveCode, getUsers } from '../actions/actions'
+import { cards, saveCode, getUsers, saveToken } from '../actions/actions'
 import { PickQuestions } from './pick-questions'
 import { SelectUsers } from './select-users'
 import { ScheduleTime } from './schedule-time'
@@ -22,7 +22,11 @@ class OnboardDummy extends Component {
         .then(response => fetch('https://www.speakupcheckin.com/api/getInformation', {method:'POST',body: JSON.stringify(response),
 	headers: { 'Content-Type': 'application/json' }}))
         .then(response => response.json())
-        .then(response => console.log(response))
+        .then(response => {
+          props.getUsers(response.users)
+          props.saveToken(response.token)
+          console.log(response)
+        })
     }
   }
 
@@ -48,7 +52,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     saveCode: (code) => dispatch(saveCode(code)),
-    getUsers: (users) => dispatch(getUsers(users))
+    getUsers: (users) => dispatch(getUsers(users)),
+    saveToken: (token) => dispatch(saveToken(token))
   }
 }
 
