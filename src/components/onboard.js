@@ -12,6 +12,8 @@ class OnboardDummy extends Component {
   constructor(props) {
     super(props)
 
+    this.renderCards = this.renderCards.bind(this)
+
     let code = new URLSearchParams(props.location.search).get('code')
     console.log(code)
     if (code === null) {
@@ -30,9 +32,8 @@ class OnboardDummy extends Component {
     }
   }
 
-  render() {
+  renderCards() {
     const { PICK_QUESTIONS, SELECT_USERS, SCHEDULE_TIME, REVIEW } = cards;
-
     switch (this.props.currentCard) {
         case PICK_QUESTIONS: return <div className="card__container"><PickQuestions /></div>
         case SELECT_USERS:   return <div className="card__container"><SelectUsers /></div>
@@ -40,6 +41,13 @@ class OnboardDummy extends Component {
         case REVIEW:         return <div className="card__container"><Review /></div>
         default:             return <div className="card__container"><PickQuestions /></div>
     }
+  }
+
+  render() {
+    
+    return (
+      this.renderCards()
+    )
   }
 }
 
