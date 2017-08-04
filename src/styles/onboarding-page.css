@@ -85,9 +85,14 @@ li {
 }
 
 .pickquestions__addmore {
-  font-size: 10px;
+  font-size: 13px;
   text-decoration: underline;
 }
+
+.pickquestions__addmore:hover {
+  cursor: pointer;
+}
+
 
 .pickquestions__remove {
   position:absolute;
@@ -200,9 +205,13 @@ li {
   text-align: left;
   font-family: Adelle-sans;
   color:black;
-  font-size:10px;
+  font-size:12px;
   margin-top:30px;
   margin-bottom:-15px;
+}
+
+.schedule__summary:hover {
+  cursor: pointer;
 }
 
 .schedule__summary > strong {
@@ -250,7 +259,7 @@ li {
   display: block;
   background: #96A0AD;
   color:white;
-  padding-right:15px; 
+  padding-right:15px;
   padding-left:3px;
   padding-top:3px;
   font-size:10px;
@@ -268,7 +277,7 @@ li {
   display: inline;
   background: #96A0AD;
   color:white;
-  padding-right:8px; 
+  padding-right:8px;
   padding-left:3px;
   padding-top:3px;
   font-size:10px;
@@ -300,7 +309,7 @@ li {
   min-width:120px;
   width:175px;
   display: flex;
-  
+
 }
 
 .weekdays--extended {
@@ -349,11 +358,15 @@ li {
   background: #3BAEDA;
   color:white;
 }
+.button:hover{
+  cursor: pointer;
+}
 
 .button-back {
   background: #D8D8D8;
   color: #656D78;
 }
+
 
 .button-large {
   display: block;
@@ -371,7 +384,7 @@ li {
 }
 
 @media screen and (min-width:600px) {
-  
+
   .card {
     padding:30px;
   }
