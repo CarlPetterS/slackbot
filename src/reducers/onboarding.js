@@ -60,9 +60,10 @@ export default function onBoarding(state = initialState, action) {
           return Object.assign({}, state)
 
         case SEND:
-          fetch('/api/newmessage', { 
+          fetch('http://localhost:5000/api/newmessage', { 
             method: 'POST',
-            body: state
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(state)
           }).then(() => console.log("data sent!"))
             .catch(e => console.error(e))
           return state
