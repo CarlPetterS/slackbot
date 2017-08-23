@@ -1,3 +1,4 @@
+
 import {
     GET_USERS,
     SWITCH_CARD,
@@ -59,7 +60,11 @@ export default function onBoarding(state = initialState, action) {
           return Object.assign({}, state)
 
         case SEND:
-          console.log("sending data!")
+          fetch('/api/newmessage', { 
+            method: 'POST',
+            body: state
+          }).then(() => console.log("data sent!"))
+            .catch(e => console.error(e))
           return state
 
         case TOGGLE_USER:
