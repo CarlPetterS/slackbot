@@ -60,7 +60,7 @@ export default function onBoarding(state = initialState, action) {
           return Object.assign({}, state)
 
         case SEND:
-          fetch('/api/newmessage', { 
+          fetch('https://www.speakupcheckin.com/api/newmessage', { 
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(state)
