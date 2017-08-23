@@ -22,7 +22,7 @@ const initialState = {
     token: null,
     users: [],
     allSelected: true,
-    timeZoneOffset: new Date().getTimezoneOffset(),
+    timeZoneOffset: new Date().getTimezoneOffset() * -1,
     currentCard: cards.PICK_QUESTIONS,
     questions: ["What's going great?", "What could be better?", "How can I help?"],
     schedule: {
