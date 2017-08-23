@@ -70,8 +70,8 @@ export default function onBoarding(state = initialState, action) {
             method: 'POST',
             body: JSON.stringify(state),
             headers: { 'Content-Type': 'application/json' }
-          }).then(() => console.log("data sent!"))
-            .catch(e => console.error(e))
+          }).then(() => alert("data sent!"))
+            .catch(e => alert(e))
           return state
 
         case TOGGLE_USER:
