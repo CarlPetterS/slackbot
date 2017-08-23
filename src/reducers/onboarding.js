@@ -1,3 +1,4 @@
+import fetch from 'node-fetch'
 
 import {
     GET_USERS,
@@ -60,10 +61,15 @@ export default function onBoarding(state = initialState, action) {
           return Object.assign({}, state)
 
         case SEND:
+          // fetch('https://www.speakupcheckin.com/api/getInformation', {
+          //   method:'POST',
+          //   body: JSON.stringify(response),
+	        //   headers: { 'Content-Type': 'application/json' }})
+
           fetch('https://www.speakupcheckin.com/api/newmessage', { 
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(state)
+            body: JSON.stringify(state),
+            headers: { 'Content-Type': 'application/json' }
           }).then(() => console.log("data sent!"))
             .catch(e => console.error(e))
           return state
@@ -77,48 +83,48 @@ export default function onBoarding(state = initialState, action) {
 
         case TOGGLE_ALL_USERS:
           const newAllSelected = !state.allSelected
-          const toggleAllUsers = state.users.map(user => Object.assign(user, { selected: newAllSelected }))
-          const stateAllUsersToggled = Object.assign(state, {users: toggleAllUsers},{ allSelected: newAllSelected })
+          const toggleAllUsers = state.users.map(user => Object.assign({},user, { selected: newAllSelected }))
+          const stateAllUsersToggled = Object.assign({},state, {users: toggleAllUsers},{ allSelected: newAllSelected })
           return Object.assign({}, stateAllUsersToggled)
 
         case SELECT_USER:
           const newSelectUsers = [].concat(state.users)
           newSelectUsers[action.index].selected = true
           const allSelectedSelect = newSelectUsers.every((user) => user.selected)
-          const stateSelectedUser = Object.assign(state,{ users: newSelectUsers},{ allSelected: allSelectedSelect })
+          const stateSelectedUser = Object.assign({}, state,{ users: newSelectUsers},{ allSelected: allSelectedSelect })
           return Object.assign({}, stateSelectedUser)
 
         case TOGGLE_DAY_REPEAT:
-          const newDayRepeatSchedule = Object.assign(state.schedule)
+          const newDayRepeatSchedule = Object.assign({},state.schedule)
           newDayRepeatSchedule.repeat_on[action.day] = !newDayRepeatSchedule.repeat_on[action.day]
-          const stateToggledDayRepeat = Object.assign(state, { schedule: newDayRepeatSchedule })
+          const stateToggledDayRepeat = Object.assign({},state, { schedule: newDayRepeatSchedule })
           return Object.assign({}, stateToggledDayRepeat)
 
         case SELECT_REPEAT_EVERY:
-          const newRepeatEverySchedule = Object.assign(state.schedule)
+          const newRepeatEverySchedule = Object.assign({},state.schedule)
           newRepeatEverySchedule.repeat_every = action.value
-          const stateSelectedRepeatEvery = Object.assign(state, { schedule: newRepeatEverySchedule })
+          const stateSelectedRepeatEvery = Object.assign({},state, { schedule: newRepeatEverySchedule })
           return Object.assign({}, stateSelectedRepeatEvery)
 
         case SELECT_REPEATS:
-          const newSelectRepeatsSchedule = Object.assign(state.schedule)
+          const newSelectRepeatsSchedule = Object.assign({},state.schedule)
           newSelectRepeatsSchedule.repeats = action.interval
-          const stateSelectedRepeated = Object.assign(state,{ schedule: newSelectRepeatsSchedule})
+          const stateSelectedRepeated = Object.assign({},state,{ schedule: newSelectRepeatsSchedule})
           return Object.assign({}, stateSelectedRepeated)
 
         case SELECT_TIME:
-          const newSelectTimeSchedule = Object.assign( state.schedule )
+          const newSelectTimeSchedule = Object.assign({},state.schedule )
           newSelectTimeSchedule.time = action.time
-          const stateSelectedTime = Object.assign(state, {schedule: newSelectTimeSchedule})
+          const stateSelectedTime = Object.assign({},state, {schedule: newSelectTimeSchedule})
           return Object.assign({}, stateSelectedTime)
         
         case SAVE_CODE:
-          const stateSavedCode = Object.assign(state, {token: action.code })
+          const stateSavedCode = Object.assign({},state, {token: action.code })
           return Object.assign({}, stateSavedCode)
         
         case SAVE_TOKEN:
           console.log(action.token)
-          const stateSavedToken = Object.assign(state,{ token: action.token })
+          const stateSavedToken = Object.assign({},state,{ token: action.token })
           return Object.assign({}, stateSavedToken)
 
         default:
