@@ -76,7 +76,14 @@ export const ScheduleTimeDummy = ({
             >Sat</a>
         </div>
         <h4 className="schedule__summary"><strong>Summary</strong>  {' ' + schedule.time + ' '} 
-            every {schedule.repeats.substring(0,schedule.repeats.length-2)} at 
+            every {(() => {switch(schedule.repeat_every) {
+                case 1:  return '' + schedule.repeat_every + 'st'
+                case 2:  return '' + schedule.repeat_every + 'nd'
+                case 3:  return '' + schedule.repeat_every + 'rd'
+                default: return '' + schedule.repeat_every + 'th'
+            }})()}
+            {' '}
+            {schedule.repeats.substring(0,schedule.repeats.length-2)} at 
             {' ' + weekday.filter(day => schedule.repeat_on[day.substring(0,3)]).join(', ')}
              {(() => {
               const split = new Date().toString().split(" ");
