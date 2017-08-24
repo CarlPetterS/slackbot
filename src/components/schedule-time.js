@@ -77,7 +77,7 @@ export const ScheduleTimeDummy = ({
         </div>
         <h4 className="schedule__summary"><strong>Summary</strong>  {' ' + schedule.time + ' '} 
             every {(() => {switch(schedule.repeat_every) {
-                case 1:  return '' + schedule.repeat_every + 'st'
+                case 1:  return ''
                 case 2:  return '' + schedule.repeat_every + 'nd'
                 case 3:  return '' + schedule.repeat_every + 'rd'
                 default: return '' + schedule.repeat_every + 'th'

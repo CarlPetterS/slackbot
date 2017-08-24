@@ -31,8 +31,15 @@ const ReviewDummy = ({ backToScheduleTime, send, questions, users, schedule }) =
 
         <p className="review__content review__summary">Your check-ins will be sent out</p>
         <p className="review__content">
-            every {schedule.repeats.substring(0,schedule.repeats.length-2)} at 
-            {' ' + weekday.filter(day => schedule.repeat_on[day.substring(0,3)]).join(', ')}
+            every {(() => {switch(schedule.repeat_every) {
+                case 1:  return ''
+                case 2:  return '' + schedule.repeat_every + 'nd'
+                case 3:  return '' + schedule.repeat_every + 'rd'
+                default: return '' + schedule.repeat_every + 'th'
+            }})()}
+            {' '}
+            {schedule.repeats.substring(0,schedule.repeats.length-2)} at 
+            {' ' + weekday.filter(day => schedule.repeat_on[day.substring(0,3)]).join(', ')} 
             {' ' + schedule.time} 
              {(() => {
               const split = new Date().toString().split(" ");

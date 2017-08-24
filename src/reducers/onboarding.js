@@ -102,7 +102,7 @@ export default function onBoarding(state = initialState, action) {
 
         case SELECT_REPEAT_EVERY:
           const newRepeatEverySchedule = Object.assign({},state.schedule)
-          newRepeatEverySchedule.repeat_every = action.value
+          newRepeatEverySchedule.repeat_every = Number(action.value)
           const stateSelectedRepeatEvery = Object.assign({},state, { schedule: newRepeatEverySchedule })
           return Object.assign({}, stateSelectedRepeatEvery)
 
