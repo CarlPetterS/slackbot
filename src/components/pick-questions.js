@@ -52,14 +52,14 @@ class PickQuestionsDummy extends Component {
               <form>
                 <ul>
                   {this.state.questions.map((question, index) => (
-                      <li key={index}>
+                      <li key={index} className="pickquestions__list_item">
                           <input className="pickquestions__input" type="text" name={"question_" + index} 
                                  value={question} 
                                  onChange={this.handleChange.bind(this, index)}
                                  onFocus={this.handleFocus}
                           />
-                          <a className="pickquestions__remove"
-                            onClick={this.removeQuestion.bind(this, index)} >X</a>
+                          <img src={require("../images/cancel.png")} className="pickquestions__remove"
+                            onClick={this.removeQuestion.bind(this, index)} ></img>
                           
                       </li>
                   ))}
