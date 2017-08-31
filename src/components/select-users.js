@@ -26,8 +26,8 @@ export const SelectUsersDummy = ({ gotoScheduleTime, backToPickQuestions, users,
                 </li>
             ))}
         </ul>
-        <a className="button button-next button-shared" onClick={gotoScheduleTime}>Schedule Checkin</a>
-        <a className="button button-back button-shared-back" onClick={backToPickQuestions}>Back</a>
+        <a className="button button-next button-shared" onClick={gotoScheduleTime}>Schedule Checkin<span className="fa fa-chevron-right"></span></a>
+        <a className="button button-back button-shared-back" onClick={backToPickQuestions}><span className="fa fa-chevron-left"></span>Back</a>
     </Card>
 )
 

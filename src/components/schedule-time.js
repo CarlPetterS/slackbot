@@ -90,8 +90,8 @@ export const ScheduleTimeDummy = ({
               const timeZoneFormatted = split[split.length - 2] + " " + split[split.length - 1];
               return ' ' + timeZoneFormatted
             })()}. </h4>
-        <a className="button button-next button-shared"onClick={gotoReview}>Review</a>
-        <a className="button button-back button-shared-back" onClick={backToSelectUsers}>Back</a>
+        <a className="button button-next button-shared"onClick={gotoReview}>Review<span className="fa fa-chevron-right"></span></a>
+        <a className="button button-back button-shared-back" onClick={backToSelectUsers}><span className="fa fa-chevron-left"></span>Back</a>
     </Card>
 )
 

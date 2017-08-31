@@ -58,15 +58,14 @@ class PickQuestionsDummy extends Component {
                                  onChange={this.handleChange.bind(this, index)}
                                  onFocus={this.handleFocus}
                           />
-                          <img src={require("../images/cancel.png")} className="pickquestions__remove"
-                            onClick={this.removeQuestion.bind(this, index)} ></img>
-                          
+                          <span className="pickquestions__remove fa fa-times"
+                                onClick={this.removeQuestion.bind(this, index)} />
                       </li>
                   ))}
                 </ul>
               </form>
               <a className="pickquestions__addmore" onClick={this.addQuestion}>+ Add more questions (optional)...</a>
-              <a onClick={() => { saveQuestions(this.state.questions); gotoSelectUsers() }} className="button button-next button-large">Select Team Members</a>
+              <a onClick={() => { saveQuestions(this.state.questions); gotoSelectUsers() }} className="button button-next button-large button-pickquestions">Select Team Members<span className="fa fa-chevron-right"></span></a>
             </Card>
         )
     }
