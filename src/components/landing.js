@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import { Footer } from './footer'
+
 export const Landing = () => (
     <main>
         <div className="landing__signin">
@@ -23,5 +25,6 @@ export const Landing = () => (
             <h1>Get started with your<br/>manager one on ones</h1>
             <Link to="/onboard">Sign Up Free</Link>
         </div>
+        <Footer />
     </main>
 )

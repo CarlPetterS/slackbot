@@ -6,17 +6,20 @@ import { Card } from '../containers/card'
 
 const ReviewDummy = ({ backToScheduleTime, send, questions, users, schedule }) => {
     
-    let usersDisplay = users.filter(user=>user.selected).reduce((usersString, user) => usersString + user.name + ", ", "")
+    let usersDisplay = users
+      .filter(user=>user.selected)
+      .reduce((usersString, user) => usersString + user.name + ", ", "")
     usersDisplay = usersDisplay.substring(0, usersDisplay.length - 2)
 
-    let weekday = new Array(7);
-    weekday[0] = "sunday";
-    weekday[1] = "monday";
-    weekday[2] = "tuesday";
-    weekday[3] = "wednesday";
-    weekday[4] = "thursday";
-    weekday[5] = "friday";
-    weekday[6] = "saturday";
+    const weekday = [
+        "sunday",
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday"
+    ]
 
     return (
     <Card title="Great! You're already done!" 

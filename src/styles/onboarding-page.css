@@ -284,10 +284,6 @@ li {
   margin-bottom:-15px;
 }
 
-.schedule__summary:hover {
-  cursor: pointer;
-}
-
 .schedule__summary > strong {
   font-weight: bold;
   font-size:12px;
@@ -358,11 +354,9 @@ li {
   padding-bottom:3px;
   border-radius: 3px;
   margin-bottom:10px;
-}
-
-.schedule__repeatevery {
   outline:0;
 }
+
 
 
 .schedule__repeatevery--date {
@@ -383,7 +377,6 @@ li {
   min-width:120px;
   width:175px;
   display: flex;
-
 }
 
 .weekdays--extended {
@@ -412,6 +405,60 @@ li {
 
 .weekday--margin {
   margin-left: 24px;
+}
+
+@media screen and (min-width: 600px) {
+
+  .schedule__titles {
+    width: 105px;
+  }
+
+  .schedule__title {
+    font-size: 18px;
+  }
+
+  .schedule__content {
+    margin-left: 135px;
+  }
+
+  .schedule__time {
+    font-size: 14px;
+    padding-top: 2px;
+    padding-bottom: 1px;
+    margin-bottom: 19px;
+  }
+
+  .schedule__repeats {
+    font-size: 13px;
+    height: 25px;
+    margin-bottom: 21px;
+  }
+
+  .schedule__repeatevery {
+    font-size: 14px;
+  }
+
+  .schedule__repeatevery--date {
+    font-size: 14px;
+  }
+
+  .schedule__weekdays {
+    display: inline;
+  }
+
+  .weekday {
+    display: none;
+  }
+
+  .schedule__summary {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .schedule__summary > strong {
+    font-weight: bold;
+    font-size:18px;
+  }
 }
 
 .button {
