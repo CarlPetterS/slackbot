@@ -50,7 +50,7 @@ const ReviewDummy = ({ backToScheduleTime, send, questions, users, schedule }) =
               return ' ' + timeZoneFormatted
             })()}.
         </p>
-        <a className="button button-next button-shared" onClick={send}>Finish<span className="fa fa-chevron-right"></span></a>
+        <a className="button button-next button-shared"      onClick={send}>Finish<span className="fa fa-chevron-right"></span></a>
         <a className="button button-back button-shared-back" onClick={backToScheduleTime}><span className="fa fa-chevron-left"></span>Back</a>
     </Card>
 )}
@@ -66,7 +66,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         backToScheduleTime: () => dispatch(switchCard(cards.SCHEDULE_TIME)),
-        send: () => dispatch(send())
+        send:               () => dispatch(send())
     }
 }
 

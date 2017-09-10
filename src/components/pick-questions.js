@@ -11,15 +11,15 @@ class PickQuestionsDummy extends Component {
         const { questions } = props
         // To avoid changing entire redux state app on change of questions,
         // we use react state for this component.
-        this.state = { questions: questions };
-        this.handleChange = this.handleChange.bind(this)
-        this.handleFocus = this.handleFocus.bind(this)
+        this.state          = { questions: questions };
+        this.handleChange   = this.handleChange.bind(this)
+        this.handleFocus    = this.handleFocus.bind(this)
         this.removeQuestion = this.removeQuestion.bind(this)
-        this.addQuestion = this.addQuestion.bind(this)
+        this.addQuestion    = this.addQuestion.bind(this)
     }
 
     handleChange(index, event) {
-        const questions = [].concat(this.state.questions)
+        const questions  = [].concat(this.state.questions)
         questions[index] = event.target.value
 
         this.setState({ questions: questions })
@@ -64,8 +64,12 @@ class PickQuestionsDummy extends Component {
                   ))}
                 </ul>
               </form>
-              <a className="pickquestions__addmore" onClick={this.addQuestion}>+ Add more questions (optional)...</a>
-              <a onClick={() => { saveQuestions(this.state.questions); gotoSelectUsers() }} className="button button-next button-large button-pickquestions">Select Team Members<span className="fa fa-chevron-right"></span></a>
+              <a className="pickquestions__addmore" 
+                 onClick={this.addQuestion}>+ Add more questions (optional)...</a>
+              <a onClick={() => { saveQuestions(this.state.questions); gotoSelectUsers() }} 
+                 className="button button-next button-large button-pickquestions">Select Team Members
+                <span className="fa fa-chevron-right"></span>
+              </a>
             </Card>
         )
     }
@@ -79,8 +83,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        gotoSelectUsers: () => dispatch(switchCard(cards.SELECT_USERS)),
-        saveQuestions: (questions) => dispatch(saveQuestions(questions))
+        gotoSelectUsers: ()          => dispatch(switchCard(cards.SELECT_USERS)),
+        saveQuestions:   (questions) => dispatch(saveQuestions(questions))
     }
 }
 

@@ -12,7 +12,7 @@ main {
       rgba(101, 109, 120, 0.50),
       rgba(101, 109, 120, 0.50)
     ),
-    url('../images/landing_page_background_pexels.jpeg') no-repeat center center;
+    url('../images/landing_page_background_pexels_2x.jpg') no-repeat center center;
   background-size: cover;
   color: white;
   min-height: 300px;
@@ -21,20 +21,22 @@ main {
   padding-top: 80px;
 }
 
-.landing__signin > h1 {
+.landing__hero > h1 {
   font-size: 24px;
 }
 
-.landing__signin > p {
+.landing__hero > p {
   font-family: adelle-sans;
   font-size: 18px;
   margin-top: 15px;
 }
 
-.landing__signin a {
+.landing__hero > a {
   display: block;
-  position:relative;
-  top: 25%;
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .landing__how {
@@ -113,14 +115,26 @@ main {
 }
 
 @media screen and (min-width: 600px) {
-  .landing__signin > h1 {
+  .landing__hero {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  .landing__hero > h1 {
     margin-top: 30px;
     font-size: 48px;
   }
 
-  .landing__signin > p {
+  .landing__hero > p {
     font-size: 36px;
     margin-top: 30px;
+  }
+
+  .landing__hero > a {
+    position: relative;
+    margin-top: 45px;
   }
 
   .landing__signinbottom {
@@ -138,5 +152,18 @@ main {
     width: 350px;
     height: 70px;
     margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .landing__hero > a > img {
+    width: 220px;
+    height: 60px;
+  }
+}
+
+@media screen and (max-height: 470px) {
+  .landing__hero > a {
+    bottom: 10%;
   }
 }

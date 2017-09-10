@@ -15,19 +15,18 @@ class OnboardDummy extends Component {
     this.renderCards = this.renderCards.bind(this)
 
     let code = new URLSearchParams(props.location.search).get('code')
-    console.log(code)
+
     if (code === null) {
       console.log("ERROR")
     } else {
       fetch('https://www.speakupcheckin.com/api/getToken?code=' + code)
         .then(response => {console.log(response); return response.json()})
         .then(response => fetch('https://www.speakupcheckin.com/api/getInformation', {method:'POST',body: JSON.stringify(response),
-	headers: { 'Content-Type': 'application/json' }}))
+	        headers: { 'Content-Type': 'application/json' }}))
         .then(response => response.json())
         .then(response => {
           props.getUsers(response.users)
           props.saveToken(response.token)
-          console.log(response)
         })
     }
   }
@@ -44,7 +43,6 @@ class OnboardDummy extends Component {
   }
 
   render() {
-    
     return (
       this.renderCards()
     )
@@ -59,8 +57,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    saveCode: (code) => dispatch(saveCode(code)),
-    getUsers: (users) => dispatch(getUsers(users)),
+    saveCode:  (code)  => dispatch(saveCode(code)),
+    getUsers:  (users) => dispatch(getUsers(users)),
     saveToken: (token) => dispatch(saveToken(token))
   }
 }

@@ -6,13 +6,17 @@ import { Footer } from './footer'
 export const Landing = () => (
     <main>
         <div className="landing__signin">
-            <h1>Keep your team <em>happy and engaged</em></h1>
-            <p>Automate <em>check-ins</em> with<br/>your team in Slack.</p>
-            <a href="https://www.slack.com/oauth/authorize?scope=users.profile:read,users:read,chat:write:user,channels:read,im:read,team:read,im:history&client_id=143457452320.144253511221">
-                <img alt="Add to Slack" height="60" width="260"
-                 src="https://platform.slack-edge.com/img/sign_in_with_slack.png"
-                 srcSet="https://platform.slack-edge.com/img/sign_in_with_slack.png 1x, https://platform.slack-edge.com/img/sign_in_with_slack@2x.png 2x" />
-            </a>
+            <section className="landing__hero">
+                <h1>Keep your team <em>happy and engaged</em></h1>
+                <p>Automate <em>check-ins</em> with<br/>your team in Slack.</p>
+                <a href="https://www.slack.com/oauth/authorize?scope=users.profile:read,users:read,chat:write:user,channels:read,im:read,team:read,im:history&client_id=143457452320.144253511221">
+                    <img alt="Add to Slack" 
+                         height="80" 
+                         width="268" 
+                         src="https://platform.slack-edge.com/img/add_to_slack@2x.png" 
+                         srcSet="https://platform.slack-edge.com/img/add_to_slack@2x.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
+                </a>
+            </section>
         </div>
         <div className="landing__how">
             <h1>Automatically send <em>scheduled messages</em> to your team in <em>Slack</em>!</h1>
