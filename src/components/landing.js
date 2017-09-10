@@ -11,10 +11,9 @@ export const Landing = () => (
                 <p>Automate <em>check-ins</em> with<br/>your team in Slack.</p>
                 <a href="https://www.slack.com/oauth/authorize?scope=users.profile:read,users:read,chat:write:user,channels:read,im:read,team:read,im:history&client_id=143457452320.144253511221">
                     <img alt="Add to Slack" 
-                         height="80" 
-                         width="268" 
-                         src="https://platform.slack-edge.com/img/add_to_slack@2x.png" 
-                         srcSet="https://platform.slack-edge.com/img/add_to_slack@2x.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
+                         height="80"
+                         width="268"
+                         src={require('../images/btn-add-to-slack.svg')} /> 
                 </a>
             </section>
         </div>
