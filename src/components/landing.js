@@ -26,7 +26,7 @@ export const Landing = () => (
         </div>
         <div className="landing__signinbottom">
             <h1>Get started with your<br/>manager one on ones</h1>
-            <Link to="/onboard">Sign Up Free</Link>
+            <Link to="https://www.slack.com/oauth/authorize?scope=users.profile:read,users:read,chat:write:user,channels:read,im:read,team:read,im:history&client_id=143457452320.144253511221">Sign Up Free</Link>
         </div>
         <Footer />
     </main>
