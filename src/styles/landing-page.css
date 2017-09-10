@@ -159,3 +159,28 @@ main {
     height: 60px;
   }
 }
+
+@media screen and (max-height: 500px) {
+  .landing__hero {
+    top: 50%;
+  }
+
+  .landing__hero > h1 {
+    font-size: 24px;
+  }
+
+  .landing__hero > p {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+
+  .landing__hero > a {
+    display: block;
+    margin-top: 30px;
+  }
+
+    .landing__hero > a > img {
+    width: 220px;
+    height: 60px;
+  }
+}
