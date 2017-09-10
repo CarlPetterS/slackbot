@@ -21,6 +21,14 @@ main {
   padding-top: 80px;
 }
 
+.landing__hero {
+    position:absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
 .landing__hero > h1 {
   font-size: 24px;
 }
@@ -33,10 +41,7 @@ main {
 
 .landing__hero > a {
   display: block;
-  position: absolute;
-  bottom: 30%;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: 30px;
 }
 
 .landing__how {
@@ -115,13 +120,6 @@ main {
 }
 
 @media screen and (min-width: 600px) {
-  .landing__hero {
-    position:absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-  }
-
   .landing__hero > h1 {
     margin-top: 30px;
     font-size: 48px;
@@ -159,11 +157,5 @@ main {
   .landing__hero > a > img {
     width: 220px;
     height: 60px;
-  }
-}
-
-@media screen and (max-height: 470px) {
-  .landing__hero > a {
-    bottom: 10%;
   }
 }
