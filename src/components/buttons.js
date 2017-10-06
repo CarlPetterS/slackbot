@@ -1,12 +1,19 @@
 import React from 'react';
 
-const ButtonNext = ({ nextClick, extraClass, text }) => (
+export const ButtonNext = ({ nextClick, extraClass, text }) => (
     <a onClick={nextClick} 
-       className="button button-next button-large button-pickquestions">
-      {text}<span className="fa fa-chevron-right" />
+       className={["button button-next", extraClass].join(' ')}>
+      <span>{text}</span>
+      <span className="fa fa-chevron-right" />
     </a>
 )
 
-const ButtonCancel = (cancelClick) => (
-    <a className="button button-back button-shared-back" onClick={backToScheduleTime}>Back</a>
-) 
+export const ButtonBack = ({ cancelClick }) => (
+    <a className={"button " +
+                  "button-back " +
+                  "button-shared-back"} 
+       onClick={cancelClick}>
+      <span className="fa fa-chevron-left"></span>
+      <span>Back</span>
+    </a>
+)

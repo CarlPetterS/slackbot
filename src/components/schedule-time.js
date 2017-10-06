@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import { switchCard, cards, toggleDayRepeat, selectRepeatEvery, selectRepeats, selectTime } from '../actions/actions'
 import { Card } from '../containers/card'
+import { ButtonNext, ButtonBack } from './buttons'
 
 const weekday = [
     "sunday",
@@ -75,7 +76,7 @@ export const ScheduleTimeDummy = ({
             <a className={schedule.repeat_on['fri'] ? 'weekday button-next': 'weekday'} 
                onClick={() => toggleDayRepeat('fri')}>Fri</a>
             <a className={schedule.repeat_on['sat'] ? 'weekday button-next': 'weekday'} 
-               onClick={() => toggleDayRepeat('sat')}a>Sat</a>
+               onClick={() => toggleDayRepeat('sat')}>Sat</a>
         </div>
         <h4 className="schedule__summary"><strong>Summary</strong>  {' ' + schedule.time + ' '} 
             every {(() => {switch(schedule.repeat_every) {
@@ -92,8 +93,8 @@ export const ScheduleTimeDummy = ({
               const timeZoneFormatted = split[split.length - 2] + " " + split[split.length - 1];
               return ' ' + timeZoneFormatted
             })()}. </h4>
-        <a className="button button-next button-shared"onClick={gotoReview}>Review<span className="fa fa-chevron-right"></span></a>
-        <a className="button button-back button-shared-back" onClick={backToSelectUsers}><span className="fa fa-chevron-left"></span>Back</a>
+        <ButtonNext text="Review" nextClick={gotoReview} extraClass="button-shared" />
+        <ButtonBack cancelClick={backToSelectUsers} />
     </Card>
 )
 

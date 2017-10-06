@@ -478,12 +478,9 @@ li {
 .button-next {
   background: #3BAEDA;
   color:white;
-}
-
-.button-next > span {
-  float: right;
-  margin-top: 4px;
-  margin-right: 15px;
+  display:flex;
+  padding: 0 15px;
+  justify-content: space-around;
 }
 
 .button:hover{
@@ -493,12 +490,6 @@ li {
 .button-back {
   background: #D8D8D8;
   color: #656D78;
-}
-
-.button-back > span {
-  float: left;
-  margin-top: 4px;
-  margin-left: 15px;
 }
 
 .button-large {

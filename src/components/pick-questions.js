@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Card } from '../containers/card'
 import { switchCard, cards, saveQuestions } from '../actions/actions'
+import { ButtonNext } from './buttons'
 
 class PickQuestionsDummy extends Component {
-
     constructor(props) {
         super(props)
 
@@ -66,10 +66,12 @@ class PickQuestionsDummy extends Component {
               </form>
               <a className="pickquestions__addmore" 
                  onClick={this.addQuestion}>+ Add more questions (optional)...</a>
-              <a onClick={() => { saveQuestions(this.state.questions); gotoSelectUsers() }} 
-                 className="button button-next button-large button-pickquestions">Select Team Members
-                <span className="fa fa-chevron-right"></span>
-              </a>
+              <ButtonNext extraClass="button-large button-pickquestions" 
+                          nextClick={() => { 
+                                             saveQuestions(this.state.questions); 
+                                             gotoSelectUsers() 
+                                          }} 
+                          text="Select Team Members" />
             </Card>
         )
     }

@@ -14,6 +14,7 @@ const HeaderDummy = ({ resetActiveCardToPickQuestions }) => (
             <div id="menu_icon"><span></span></div>
     </div>
     <ul className="header__navbar">
+      <li>Sign In</li>
       <li>Products</li>
       <li>Sign Up Free</li>
     </ul>

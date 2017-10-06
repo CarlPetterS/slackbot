@@ -10,6 +10,7 @@ import {
 
 import { Card } from '../containers/card'
 import { SearchBar } from './search-bar'
+import { ButtonNext, ButtonBack } from './buttons'
 
 export const SelectUsersDummy = ({ gotoScheduleTime, backToPickQuestions, users, toggleUser, toggleAllUsers, allSelected}) => (
     <Card title="Select team members to check-in with."
@@ -26,8 +27,8 @@ export const SelectUsersDummy = ({ gotoScheduleTime, backToPickQuestions, users,
                 </li>
             ))}
         </ul>
-        <a className="button button-next button-shared" onClick={gotoScheduleTime}>Schedule Check-in<span className="fa fa-chevron-right"></span></a>
-        <a className="button button-back button-shared-back" onClick={backToPickQuestions}><span className="fa fa-chevron-left"></span>Back</a>
+        <ButtonNext text="Schedule Check-in" nextClick={gotoScheduleTime} extraClass="button-shared" />
+        <ButtonBack cancelClick={backToPickQuestions} />
     </Card>
 )
 

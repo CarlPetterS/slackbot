@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import { send, switchCard, cards } from '../actions/actions'
 import { Card } from '../containers/card'
+import { ButtonNext, ButtonBack } from './buttons'
 
 const ReviewDummy = ({ backToScheduleTime, send, questions, users, schedule }) => {
     
@@ -50,8 +51,8 @@ const ReviewDummy = ({ backToScheduleTime, send, questions, users, schedule }) =
               return ' ' + timeZoneFormatted
             })()}.
         </p>
-        <a className="button button-next button-shared"      onClick={send}>Finish<span className="fa fa-chevron-right"></span></a>
-        <a className="button button-back button-shared-back" onClick={backToScheduleTime}><span className="fa fa-chevron-left"></span>Back</a>
+        <ButtonNext text="Finish" nextClick={send} extraClass="button-shared" />
+        <ButtonBack cancelClick={backToScheduleTime} />
     </Card>
 )}
 
